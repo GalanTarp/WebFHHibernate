@@ -71,11 +71,12 @@ public class Controller extends HttpServlet {
             producto = (Producto)q.uniqueResult();
             Query q2 = singleton.createQuery("select round(avg(puntos)) from Punto where producto.id = ?");
             q2.setString(0,productoid);
-            int estrellasmedia = (int)q2.uniqueResult();
+            int estrellasmedia = Integer.valueOf((String)q2.uniqueResult());
             
-            session.setAttribute("producto", producto);
+            
             session.setAttribute("estrellasmedia", estrellasmedia);
-            dispatcher = request.getRequestDispatcher("producto.jsp");
+            session.setAttribute("producto", producto);
+            dispatcher = request.getRequestDispatcher("detail.jsp");
             dispatcher.forward(request, response);
         } 
     }

@@ -25,7 +25,7 @@
         <%
 
             Producto producto = (Producto) session.getAttribute("producto");
-            int puntos = (int) session.getAttribute("puntos");
+//            int puntos = (int) session.getAttribute("estrellasmedia");
         %>
         <div class="container shadow" style="background-image:url('<%=producto.getFondo()%>');  background-size: cover;" >
             <div class="row mb-5">
@@ -64,11 +64,11 @@
                 <div class="col-8">
                     <div class="card justify-content-center text-center">
 
-                        <span class="rating2">
-                            <%for (int i = 0; i < puntos; i++) {%>  
+<!--                        <span class="rating2">
+                            <% //for (int i = 0; i < puntos; i++) {%>  
                             <a>&#9733;</a>
-                            <%}%>
-                        </span>
+                            <%//}%>
+                        </span>-->
 
                         <img class="img-fluid" src="<%=producto.getImagen()%>" alt="Third slide">
                         <h1><%=producto.getTitulo()%></h1>
